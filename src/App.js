@@ -14,7 +14,8 @@ class App extends Component<{}> {
                 <Grid columns='equal' padded>
                     <Grid.Row color='grey' textAlign='center'>
                         <Grid.Column>
-                            <Input value={this.props.inputValue} action={<Button content='Save' onClick={this.props.localSave} />} fluid />
+                            <Input value={this.props.inputValue}
+                                   action={<Button content='Save' onClick={this.props.localSave}/>} fluid/>
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row color='grey' textAlign='center'>

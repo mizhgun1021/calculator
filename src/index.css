@@ -16,6 +16,6 @@ body {
     margin-bottom: 10px !important;
 }
 
-.ui.grid>.grey.column, .ui.grid>.grey.row, .ui.grid>.row>.grey.column {
-    background-color: #cecece!important;
+.ui.grid > .grey.column, .ui.grid > .grey.row, .ui.grid > .row > .grey.column {
+    background-color: #cecece !important;
 }
