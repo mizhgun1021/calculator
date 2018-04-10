@@ -1,4 +1,4 @@
-// let calculatorInput = '';
+import {saveState} from '../reducers/history'
 
 export const buttonAction = (button) => {
     return (dispatch, getState) => {
@@ -15,6 +15,13 @@ export const buttonAction = (button) => {
                 break
         }
         dispatch({type: 'CHANGE_INPUT_VALUE', payload: inputValue});
-        console.log(inputValue );
+        console.log(inputValue);
+    }
+};
+
+export const localSave = () => {
+    return (dispatch, getState) => {
+        let state = getState();
+        saveState(state);
     }
 };

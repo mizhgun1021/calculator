@@ -1,10 +1,9 @@
-
 //@flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {buttonAction} from './actions';
+import {buttonAction, localSave} from './actions';
 import 'semantic-ui-css/semantic.min.css';
-import {Grid, Input} from 'semantic-ui-react';
+import {Grid, Input, Button} from 'semantic-ui-react';
 import './index.css';
 import Buttons from './components/Buttons';
 
@@ -15,7 +14,7 @@ class App extends Component<{}> {
                 <Grid columns='equal' divided inverted padded>
                     <Grid.Row color='black' textAlign='center'>
                         <Grid.Column>
-                            <Input value={this.props.inputValue} action='Save' fluid/>
+                            <Input value={this.props.inputValue} action={<Button content='Save' onClick={this.props.localSave} />} fluid />
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row color='black' textAlign='center'>
@@ -36,6 +35,9 @@ export default connect(
     dispatch => ({
         btnAction: (button) => {
             dispatch(buttonAction(button));
+        },
+        localSave: () => {
+            dispatch(localSave());
         },
     })
 )(App);

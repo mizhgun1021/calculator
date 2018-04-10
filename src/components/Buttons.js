@@ -1,6 +1,5 @@
 //@flow
 import React, {Component} from 'react';
-// import * as utils from "../actions";
 import {Grid, Button} from 'semantic-ui-react'
 
 class Buttons extends Component<{}> {
