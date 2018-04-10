@@ -1,0 +1,12 @@
+#root {
+    max-width: 400px;
+}
+
+.button_calculator {
+    height: 50px;
+    width: 100%;
+}
+
+.buttons-body {
+    margin-bottom: 10px!important;
+}
