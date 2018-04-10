@@ -11,13 +11,13 @@ class App extends Component<{}> {
     render() {
         return (
             <div className="App">
-                <Grid columns='equal' divided inverted padded>
-                    <Grid.Row color='black' textAlign='center'>
+                <Grid columns='equal' padded>
+                    <Grid.Row color='grey' textAlign='center'>
                         <Grid.Column>
                             <Input value={this.props.inputValue} action={<Button content='Save' onClick={this.props.localSave} />} fluid />
                         </Grid.Column>
                     </Grid.Row>
-                    <Grid.Row color='black' textAlign='center'>
+                    <Grid.Row color='grey' textAlign='center'>
                         <Grid.Column width={16}>
                             <Buttons clickAction={this.props.btnAction}/>
                         </Grid.Column>

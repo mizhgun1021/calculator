@@ -1,4 +1,9 @@
+body {
+    background-color: #f1f1f1;
+}
+
 #root {
+    margin: auto;
     max-width: 400px;
 }
 
@@ -8,5 +13,9 @@
 }
 
 .buttons-body {
-    margin-bottom: 10px!important;
+    margin-bottom: 10px !important;
+}
+
+.ui.grid>.grey.column, .ui.grid>.grey.row, .ui.grid>.row>.grey.column {
+    background-color: #cecece!important;
 }
