@@ -1,21 +1,21 @@
 const initialState = (() => {
     try {
-        const serialized = localStorage.getItem('history');
+        const serialized = localStorage.getItem("history");
         if (serialized === null) {
             return {
-                inputValue: ''
+                inputValue: ""
             };
         }
         return JSON.parse(serialized);
     } catch (err) {
         return {
-            inputValue: ''
+            inputValue: ""
         };
     }
 })();
 
 export default function history(state = initialState, action) {
-    if (action.type === 'CHANGE_INPUT_VALUE') {
+    if (action.type === "CHANGE_INPUT_VALUE") {
         return {
             ...state,
             inputValue: action.payload
@@ -24,10 +24,10 @@ export default function history(state = initialState, action) {
     return state;
 }
 
-export const saveState = (state) => {
+export const saveState = state => {
     try {
-        const serialized = JSON.stringify(state);
-        localStorage.setItem('history', serialized);
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem("history", serializedState);
     } catch (e) {
         //ignore
     }

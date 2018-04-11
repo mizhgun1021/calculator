@@ -1,26 +1,31 @@
 //@flow
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {buttonAction, localSave} from './actions';
-import 'semantic-ui-css/semantic.min.css';
-import {Grid, Input, Button} from 'semantic-ui-react';
-import './index.css';
-import Buttons from './components/Buttons';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { buttonAction, localSave } from "./actions";
+import "semantic-ui-css/semantic.min.css";
+import { Grid, Input, Button } from "semantic-ui-react";
+import "./index.css";
+import Buttons from "./components/Buttons";
 
 class App extends Component<{}> {
     render() {
         return (
             <div className="App">
-                <Grid columns='equal' padded>
-                    <Grid.Row color='grey' textAlign='center'>
+                <Grid columns="equal" padded>
+                    <Grid.Row color="grey" textAlign="center">
                         <Grid.Column>
-                            <Input value={this.props.inputValue}
-                                   action={<Button content='Save' onClick={this.props.localSave}/>} fluid/>
+                            <Input
+                                value={this.props.inputValue}
+                                action={
+                                    <Button content="Save" onClick={this.props.localSave} />
+                                }
+                                fluid
+                            />
                         </Grid.Column>
                     </Grid.Row>
-                    <Grid.Row color='grey' textAlign='center'>
+                    <Grid.Row color="grey" textAlign="center">
                         <Grid.Column width={16}>
-                            <Buttons clickAction={this.props.btnAction}/>
+                            <Buttons clickAction={this.props.btnAction} />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
@@ -31,15 +36,14 @@ class App extends Component<{}> {
 
 export default connect(
     state => ({
-        ...state,
+        ...state
     }),
     dispatch => ({
-        btnAction: (button) => {
+        btnAction: button => {
             dispatch(buttonAction(button));
         },
         localSave: () => {
             dispatch(localSave());
-        },
+        }
     })
 )(App);
-

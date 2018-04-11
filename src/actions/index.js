@@ -1,40 +1,41 @@
-import {saveState} from '../reducers/history'
+import { saveState } from "../reducers/history";
 
-export const buttonAction = (button) => {
+export const buttonAction = button => {
     return (dispatch, getState) => {
-        let {inputValue} = getState();
+        let { inputValue } = getState();
+        const lastSymbolNumber = isNaN(inputValue.slice(-1));
 
-        if(inputValue === '' && isNaN(button)){
-            button = '';
+        if (inputValue === "" && isNaN(button)) {
+            button = "";
         }
-        if((inputValue === '' || isNaN(inputValue.slice(-1)))  && button === 0 ) {
-            button = '';
+        if ((inputValue === "" || lastSymbolNumber) && button === 0) {
+            button = "";
         }
 
         switch (button) {
-            case 'C':
-                inputValue = '';
+            case "C":
+                inputValue = "";
                 break;
-            case '=':
-                if(!isNaN(inputValue.slice(-1))) {
-                    inputValue = '' + eval(inputValue);
+            case "=":
+                if (!lastSymbolNumber) {
+                    inputValue = "" + new Function("", "return " + inputValue)();
                 }
                 break;
             default:
-                if(inputValue !== '' && (isNaN(inputValue.slice(-1)) && isNaN(button))) {
-                    button = '';
+                if (inputValue !== "" && (lastSymbolNumber && isNaN(button))) {
+                    button = "";
                 }
 
                 inputValue += button;
-                break
+                break;
         }
-        dispatch({type: 'CHANGE_INPUT_VALUE', payload: inputValue});
-    }
+        dispatch({ type: "CHANGE_INPUT_VALUE", payload: inputValue });
+    };
 };
 
 export const localSave = () => {
     return (dispatch, getState) => {
-        let state = getState();
+        const state = getState();
         saveState(state);
-    }
+    };
 };
